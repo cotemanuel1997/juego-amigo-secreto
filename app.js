@@ -10,6 +10,21 @@ let amigo;
 
 //  Si el campo de texto está vacío, el programa mostrará una alerta pidiendo un nombre válido.
 
+function agregarAmigo(){
+
+
+    // Capturar el valor del campo de entrada: 
+        // Utilizar document.getElementById o document.querySelector para obtener el texto ingresado por el usuario.
+    amigo = document.getElementById("amigo").value;
+    // Validar la entrada: Implementar una validación para asegurarse de que el campo no esté vacío. Si está vacío, mostrar un alert con un mensaje de error: "Por favor, inserte un nombre."
+    if(validarEntrada(amigo)){
+        // Actualizar el array de amigos: Si el valor es válido, añadirlo al arreglo que almacena los nombre de amigos usando el método.push().
+        listaDeAmigos.push(amigo);
+    }
+    // Limpiar el campo de entrada: Después de añadir el nombre, restablecer el campo de texto a una cadena vacía.
+    document.getElementById("amigo").value="";
+}
+
 // Visualizar la lista: 
 
 //  Los nombres ingresados aparecerán en una lista debajo del campo de entrada. 
@@ -28,20 +43,7 @@ let amigo;
 
 // Implementa una función para agregar amigos
 
-function agregarAmigo(){
 
-
-    // Capturar el valor del campo de entrada: 
-        // Utilizar document.getElementById o document.querySelector para obtener el texto ingresado por el usuario.
-    amigo = document.getElementById("amigo").value;
-    // Validar la entrada: Implementar una validación para asegurarse de que el campo no esté vacío. Si está vacío, mostrar un alert con un mensaje de error: "Por favor, inserte un nombre."
-    if(validarEntrada(amigo)){
-        // Actualizar el array de amigos: Si el valor es válido, añadirlo al arreglo que almacena los nombre de amigos usando el método.push().
-        listaDeAmigos.push(amigo);
-    }
-    // Limpiar el campo de entrada: Después de añadir el nombre, restablecer el campo de texto a una cadena vacía.
-    document.getElementById("amigo").value="";
-}
 
 function validarEntrada(entrada){
     //el campo esta vacio
