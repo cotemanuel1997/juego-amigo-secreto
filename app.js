@@ -125,5 +125,6 @@ function condicionesIniciales() {
     amigo = "";  
     limpiarListaHTML();
     document.getElementById("resultado").innerHTML = "";
+    indiceElemento = 0;
 }
 
