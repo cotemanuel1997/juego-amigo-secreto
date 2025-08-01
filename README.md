@@ -10,3 +10,5 @@ Podemos ingresar nombres y luego el sistema elije a uno de ellos.
 - JavaScript
 - Html
 - Css
+  
+![](assets/home.png)
