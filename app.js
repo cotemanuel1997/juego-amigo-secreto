@@ -96,7 +96,7 @@ function sortearAmigo(){
         let nombreSorteado = listaDeAmigos[indice];
         // Mostrar el resultado: Actualizar el contenido del elemento de resultado utilizando document.getElementById()  e innerHTML para mostrar el amigo sorteado.
         limpiarListaHTML();
-        document.getElementById("resultado").innerHTML = nombreSorteado;
+        document.getElementById("resultado").innerHTML = `El amigo secreto sorteado es: ${nombreSorteado}`;
     }
     
 
