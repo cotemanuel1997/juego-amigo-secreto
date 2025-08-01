@@ -11,16 +11,21 @@ let indiceElemento = 0;
 // Validar entrada: 
 //  Si el campo de texto está vacío, el programa mostrará una alerta pidiendo un nombre válido.
 
-function agregarAmigo(){
-    
+function agregarAmigo(){  
     // Capturar el valor del campo de entrada: 
     // Utilizar document.getElementById o document.querySelector para obtener el texto ingresado por el usuario.    
-    if (document.getElementById("resultado").innerHTML != "") {
+    if (!elementoEstaVacio("resultado")) {
         condicionesIniciales();
+        borrarElemento("resultado");
     }
-    amigo = document.getElementById("amigo").value;
+    else{
+        borrarElemento("resultado");
+    }
+
+    amigo = obtenerElemento("amigo");
     
-    // Validar la entrada: Implementar una validación para asegurarse de que el campo no esté vacío. Si está vacío, mostrar un alert con un mensaje de error: "Por favor, inserte un nombre."
+    // Validar la entrada: Implementar una validación para asegurarse de que el campo no esté vacío. 
+    // Si está vacío, mostrar un alert con un mensaje de error: "Por favor, inserte un nombre."
     if(validarEntrada(amigo)){
         // Actualizar el array de amigos: Si el valor es válido, añadirlo al arreglo que almacena los nombre de amigos usando el método.push().
         listaDeAmigos.push(amigo);
@@ -28,7 +33,7 @@ function agregarAmigo(){
     }
 
     // Limpiar el campo de entrada: Después de añadir el nombre, restablecer el campo de texto a una cadena vacía.
-    document.getElementById("amigo").value="";
+    borrarElementoInput("amigo");
     
 }
 
@@ -75,13 +80,11 @@ function mostrarAmigos(amigoIngresado){
 }
 
 // Sorteo aleatorio: 
-
 //  Al hacer clic en el botón "Sortear Amigo", se seleccionará aleatoriamente un nombre de la lista y se mostrará en la página. 
-
 // determinar quién es el "amigo secreto". 
-// Limpiar la lista existente: Establecer lista.innerHTML = "" para asegurarse de que no haya duplicados al actualizar.
+// Escribe una función que seleccione de manera aleatoria uno de los nombres almacenados en el array amigos. 
+// Usa Math.random() y Math.floor() para obtener un índice aleatorio.
 
-// Escribe una función que seleccione de manera aleatoria uno de los nombres almacenados en el array amigos. Usa Math.random() y Math.floor() para obtener un índice aleatorio.
 function sortearAmigo(){
     // Tareas específicas:
     // Validar que haya amigos disponibles: Antes de sortear, comprobar si el array amigos no está vacío.
@@ -94,12 +97,14 @@ function sortearAmigo(){
 
         // Obtener el nombre sorteado: Utilizar el índice aleatorio para acceder al nombre correspondiente en el arreglo.
         let nombreSorteado = listaDeAmigos[indice];
+
         // Mostrar el resultado: Actualizar el contenido del elemento de resultado utilizando document.getElementById()  e innerHTML para mostrar el amigo sorteado.
+        // Limpiar la lista existente: Establecer lista.innerHTML = "" para asegurarse de que no haya duplicados al actualizar.
         limpiarListaHTML();
         document.getElementById("resultado").innerHTML = `El amigo secreto sorteado es: ${nombreSorteado}`;
+        condicionesIniciales();
     }
     
-
 }
 
 function generarIndice(lista) {
@@ -112,6 +117,7 @@ function limpiarListaHTML() {
     if (document.getElementById("resultado").innerHTML != "") {
         return;
     }
+
     lista = document.getElementById("listaAmigos");
     
     for (let index = 0; index < indiceElemento; index++) {      
@@ -124,7 +130,22 @@ function condicionesIniciales() {
     listaDeAmigos = [];
     amigo = "";  
     limpiarListaHTML();
-    document.getElementById("resultado").innerHTML = "";
     indiceElemento = 0;
+}
+
+function elementoEstaVacio(idElemento){
+    return document.getElementById(idElemento).innerHTML == "";   
+}
+
+function borrarElemento(idElemento) {
+    document.getElementById(idElemento).innerHTML = "";
+}
+
+function borrarElementoInput(idElemento) {
+    document.getElementById(idElemento).value = "";
+}
+
+function obtenerElemento(idElemento) {
+    return document.getElementById(idElemento).value;
 }
 
