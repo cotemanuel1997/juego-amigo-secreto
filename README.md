@@ -12,3 +12,7 @@ Podemos ingresar nombres y luego el sistema elije a uno de ellos.
 - Css
   
 ![](assets/home.png)
+
+![](assets/home2.png)
+
+![](assets/home3.png)
